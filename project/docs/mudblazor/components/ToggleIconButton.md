@@ -1,0 +1,54 @@
+# ToggleIconButton
+
+Use two-way binding `@(@"@bind-Toggle=""...""")` to update a value in the parent component.
+
+```razor title="ToggleIconButtonTwoWayBindingExample"
+<MudToggleIconButton @bind-Toggled="AlarmOn"
+                     Icon="@Icons.Material.Filled.AlarmOff"
+                     Color="@Color.Error"
+                     ToggledIcon="@Icons.Material.Filled.AlarmOn"
+                     ToggledColor="@Color.Success"
+                     title="@(AlarmOn ? "On" : "Off")" />
+
+<span>Alarm is @(AlarmOn ? "On" : "Off")</span>
+
+@code {
+    public bool AlarmOn { get; set; }
+}
+```
+
+You may act on the toggled state by using the `Toggled` EventCallback instead of a two-way binding.
+
+```razor title="ToggleIconButtonEventCallbackExample"
+<MudToggleIconButton Toggled="AlarmOn" 
+                     ToggledChanged="OnToggledChanged"
+                     Icon="@Icons.Material.Filled.AlarmOff" 
+                     Color="@Color.Error" 
+                     ToggledIcon="@Icons.Material.Filled.AlarmOn" 
+                     ToggledColor="@Color.Success"
+                     title="@(AlarmOn ? "On" : "Off")" />
+
+<span>Alarm is @(AlarmOn ? "On" : "Off")</span>
+<span>@($"I have been switched on {SwitchedOnCount} times (Remaining: {MaxCount - SwitchedOnCount})")</span>
+
+@code {
+    public bool AlarmOn { get; set; }
+    public int SwitchedOnCount { get; set; }
+
+    private const int MaxCount = 5;
+
+    public void OnToggledChanged(bool toggled)
+    {
+        // Because variable is not two-way bound, we need to update it ourselves.
+        AlarmOn = toggled;
+
+        if (AlarmOn)
+        {
+            if (SwitchedOnCount < MaxCount)
+                SwitchedOnCount++;
+            else
+                AlarmOn = false; // We can force a state under specific condition (max count reached).
+        }
+    }
+}
+```

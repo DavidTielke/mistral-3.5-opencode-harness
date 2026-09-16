@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "references": {
+    "opencode-docs": {
+      "path": "../docs/opencode",
+      "description": "Use whenever the question is about opencode itself: config keys, agents, skills, commands, permissions, providers, MCP servers, references. Check opencode-config.schema.json to decide whether a config key exists and what shape it takes, before writing it. README.md lists every topic file."
+    },
+    "blazor-docs": {
+      "path": "../docs/blazor",
+      "description": "Use BEFORE writing or changing any Razor component, page, form, or EF Core integration in a Blazor app, and again whenever something in the running app behaves differently than the code suggests. This documentation is for the exact framework version in this project and is newer than your training data, so verify the requirements here instead of relying on recall. Start with README.md, which maps symptoms to topic files."
+    },
+    "mudblazor-docs": {
+      "path": "../docs/mudblazor",
+      "description": "Use BEFORE writing any MudBlazor markup, and before adding MudBlazor to a project at all. Plain Markdown, one file per component in components/, with the documentation prose and every code example inline. getting-started/Installation.md lists the NuGet package, the _Imports entry, the CSS and JS tags and the Program.cs services that are ALL required before anything renders. Read README.md first, then grep the component file. Copy parameter names from the examples; there is no API reference here, so never guess a parameter name."
+    }
+  }
+}

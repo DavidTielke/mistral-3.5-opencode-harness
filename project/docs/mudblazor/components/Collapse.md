@@ -1,0 +1,21 @@
+# Collapse
+
+```razor title="CollapseSimpleExample"
+<MudPaper Class="pa-4">
+    <MudStack Spacing="2">
+        <MudButton OnClick="OnExpandCollapseClick">@(_expanded ? "Collapse" : "Expand")</MudButton>
+        <MudDivider />
+        <MudCollapse Expanded="_expanded">
+                This content is collapsible.
+        </MudCollapse>
+    </MudStack>
+</MudPaper>
+
+@code {
+    bool _expanded = true;
+
+    private void OnExpandCollapseClick() {
+        _expanded = !_expanded;
+    }
+}
+```

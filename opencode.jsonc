@@ -1,0 +1,55 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "shell": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "autoupdate": false,
+  "share": "disabled",
+  "permission": {
+    "external_directory": "allow",
+    "doom_loop": "ask"
+  },
+  "tool_output": {
+    "max_lines": 400,
+    "max_bytes": 40000
+  },
+  "subagent_depth": 1,
+  "provider": {
+    "pod-mistral": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Runpod Pod Mistral (2x Pro 6000)",
+      "options": {
+        "baseURL": "http://localhost:8001/v1",
+        "apiKey": "sk-local-no-auth"
+      },
+      "models": {
+        "mistral-medium-3.5": {
+          "name": "Mistral Medium 3.5 128B NVFP4 (Pod)",
+          "tool_call": true,
+          "reasoning": true,
+          "attachment": false,
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "options": {
+            "reasoningEffort": "high",
+            "temperature": 0.7,
+            "topP": 0.95
+          },
+          "variants": {
+            "high": {
+              "reasoningEffort": "high",
+              "temperature": 0.7,
+              "topP": 0.95
+            },
+            "none": {
+              "reasoningEffort": "none",
+              "temperature": 0.3,
+              "topP": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "model": "pod-mistral/mistral-medium-3.5"
+}

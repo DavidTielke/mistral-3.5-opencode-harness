@@ -1,0 +1,22 @@
+# Build artefacts
+bin/
+obj/
+*.user
+*.suo
+*.cache
+
+# Runtime database
+*.db
+*.db-shm
+*.db-wal
+
+# Agent run logs and dumps
+run.log
+run2.log
+verify.log
+verify-page.html
+page.html
+
+# OS
+Thumbs.db
+.DS_Store
