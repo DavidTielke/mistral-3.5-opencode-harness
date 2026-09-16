@@ -1,0 +1,1 @@
+Create a PersonManagerApp as a .net 10 Blazor Server Side App which manages persons (Id, Name, Age) and stores its data in a sqlite database (use ef core with auto migrations and fluent mappings). Remove all other menu items from the scaffolded page.
